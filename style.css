@@ -1,0 +1,10 @@
+body {
+  font-family: -apple-system;
+  font-weight: 400;
+  color: #3700ff;
+}
+iframe {
+  border: 1px solid;
+  box-shadow: lightgrey 0 5px 10px 0;
+  border-radius: 0.5rem;
+}
