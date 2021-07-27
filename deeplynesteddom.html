@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>deeply nested dom</title>
+  <style>
+    p {
+      border: 1px solid;
+      padding: .1rem;
+      margin: .1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="target"></div>
+</body>
+<script>
+  function createDeeplyNestedTree() {
+    const parent = document.createElement("div")
+    let lastChild = parent
+    for (let index = 0; index < 200; index++) {
+      const block1 = document.createElement("p")
+      block1.textContent = `child #${index}`
+      if (index == 199) {
+        const img = document.createElement("img", {src: "./logo.png"})
+        block1.appendChild(img)
+      }
+      lastChild.appendChild(block1)
+      lastChild = block1
+    }
+
+    return parent
+  }
+
+  const parent = createDeeplyNestedTree()
+  document.querySelector(".target").appendChild(parent)
+</script>
+</html>
