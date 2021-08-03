@@ -35,3 +35,12 @@ img {
 img:hover {
   width: 100vw;
 }
+.background-image {
+  width: 600px;
+  background-size: cover;
+  height: 600px;
+  overflow: hidden;
+  background: url("cursor.png") no-repeat center center; 
+  background-size: contain;
+  border: 1px solid;
+}
