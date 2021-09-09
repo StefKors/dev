@@ -7,17 +7,22 @@
     <title>index</title>
     <link rel="stylesheet" href="./style.css" />
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
       .scrollwrapper {
         height: 500px;
         overflow-y: scroll;
         border: 2px dotted violet;
         padding: 1rem;
+        scroll-margin-top: 50vh;
       }
     </style>
   </head>
   <body>
     <p>location: https://stefkors.github.io/dev/</p>
     <article>
+      <a href="#wrapper">scroll to wrapper</a>
       <h1>no referer https://www.youtube.com/embed/iCtffPv9yKY</h1>
 
       <iframe width="779" height="398" src="https://www.youtube.com/embed/iCtffPv9yKY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -76,7 +81,7 @@
       </p>
     </article>
 
-    <h3>scroll wrapper ⬇</h3>
+    <h3 id="wrapper">scroll wrapper ⬇</h3>
     <div class="scrollwrapper">
       <h3>chapter 1</h3>
       <p>
