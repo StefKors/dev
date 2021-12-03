@@ -1,25 +1,22 @@
 /* Light */
 :root {
-  --Background: #fcfcfc;
-  --Background-Light: #c5c5c57e;
-  --Color: #3d3d3d;
+  --Beam-Embed-Background: #fcfcfc;
+  --Beam-Embed-Color: #3d3d3d;
 }
 
 @media (prefers-color-scheme: dark) {
   /* Dark */
   :root {
-    --Background: #1e1e1e;
-    --Background-Light: #020202;
-    --Color: #ededed;
+    --Beam-Embed-Background: #1e1e1e;
+    --Beam-Embed-Color: #ededed;
   }
 }
 
-body {
-  font-family: -apple-system;
-  font-weight: 400;
-  color: var(--Color);
-  background-color: var(--Background);
+html {
+  color: var(--Beam-Embed-Color);
+  background-color: var(--Beam-Embed-Background);
 }
+
 p {
   max-width: 80ch;
 }
