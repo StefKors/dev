@@ -34,13 +34,32 @@
       </ul>
     </p>
     <article>
-      <iframe
+      <!-- <iframe
         src="https://clips.twitch.tv/embed?clip=https://www.twitch.tv/cocoatype/video/1221611733&parent=beamapp.co"
         height="600"
         width="800"
         allowfullscreen="<allow full screen>">
       </iframe>
       <iframe src="https://clips.twitch.tv/embed?clip=ZealousPowerfulHyenaArsonNoSexy" height="315" width="560" frameborder="1" scrolling="no" allowfullscreen="true">
+      </iframe> -->
+      <!-- <iframe
+    src="https://player.twitch.tv/?video=1221611733&parent=localhost"
+    height="<height>"
+    width="<width>"
+    allowfullscreen="<allowfullscreen>"> -->
+
+      <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+      <div id="player"></div>
+      <script type="text/javascript">
+        var options = {
+          width: 300,
+          height: 400,
+          channel: "cocoatype",
+          video: "1221611733"
+        };
+        var player = new Twitch.Player("player", options);
+        player.setVolume(0.5);
+      </script>
       </iframe>
       <h1>testing</h1>
       
