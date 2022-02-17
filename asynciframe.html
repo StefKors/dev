@@ -30,7 +30,7 @@
     </article>
   </body>
   <script>
-    setTimeout(() => {
+    setInterval(() => {
       document.querySelector("#target").innerHTML = `
       <iframe
       width="100%"
@@ -41,6 +41,10 @@
       src="https://stefkors.github.io/dev/messy_html"
     ></iframe>
     `
-    }, 5000);
+      setTimeout(() => {
+        document.querySelector("#target").innerHTML =
+          "removing and recreating iframe"
+      }, 3500)
+    }, 5000)
   </script>
 </html>
