@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>index</title>
-    <link rel="stylesheet" href="./style.css" />
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-      h3 {
-        scroll-margin-top: 50vh;
-      }
-      .scrollwrapper {
-        height: 500px;
-        overflow-y: scroll;
-        border: 2px dotted violet;
-        padding: 1rem;
-      }
-    </style>
-  </head>
-  <body>
-    <p>location: https://stefkors.github.io/dev/asynciframe</p>
-    <article>
-      <h1>testing</h1>
-      <h3>iframe ⬇</h3>
-      <div id="target">waiting for iframe</div>
-    </article>
-  </body>
-  <script>
-    setInterval(() => {
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>index</title>
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    h3 {
+      scroll-margin-top: 50vh;
+    }
+
+    .scrollwrapper {
+      height: 500px;
+      overflow-y: scroll;
+      border: 2px dotted violet;
+      padding: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <p>location: https://stefkors.github.io/dev/asynciframe</p>
+  <article>
+    <h1>testing</h1>
+    <input type="range" id="interval" name="interval" min="2000" max="10000" value="5000" step="500">
+    <label for="interval">interval => <span id="interval-value">(disabled)</span> </label>
+    <h3>iframe ⬇</h3>
+    <div id="target">waiting for iframe</div>
+  </article>
+</body>
+<script>
+  function loadPage() {
+    function insertIframe() {
       document.querySelector("#target").innerHTML = `
       <iframe
       width="100%"
@@ -41,10 +48,38 @@
       src="https://stefkors.github.io/dev/messy_html"
     ></iframe>
     `
-      setTimeout(() => {
-        document.querySelector("#target").innerHTML =
-          "removing and recreating iframe"
-      }, 3500)
-    }, 5000)
-  </script>
+    }
+    const selectElement = document.querySelector('#interval');
+    const params = (new URL(document.location)).searchParams
+    const interval = parseInt(params.get('interval'))
+
+    if (interval) {
+      selectElement.value = interval
+      document.querySelector('#interval-value').innerHTML = interval
+
+      setInterval(() => {
+        insertIframe()
+        setTimeout(() => {
+          document.querySelector("#target").innerHTML =
+            "removing and recreating iframe"
+        }, interval - 500)
+      }, interval)
+    } else {
+      insertIframe()
+    }
+
+    selectElement.addEventListener('change', (event) => {
+      const result = document.querySelector('#interval-value');
+      result.textContent = event.target.value;
+
+      let newLocation = window.location
+      var search = new URLSearchParams("")
+      search.set("interval", event.target.value)
+      newLocation.search = search.toString()
+    });
+
+  }
+  document.addEventListener("load", loadPage())
+</script>
+
 </html>
