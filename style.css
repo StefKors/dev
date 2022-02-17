@@ -15,6 +15,7 @@
 html {
   color: var(--Beam-Embed-Color);
   background-color: var(--Beam-Embed-Background);
+  font-family: sans-serif;
 }
 
 p {

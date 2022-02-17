@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      h3 {
+        scroll-margin-top: 50vh;
+      }
+      .scrollwrapper {
+        height: 500px;
+        overflow-y: scroll;
+        border: 2px dotted violet;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <p>location: https://stefkors.github.io/dev/asynciframe</p>
+    <article>
+      <h1>testing</h1>
+      <h3>iframe ⬇</h3>
+      <div id="target">waiting for iframe</div>
+    </article>
+  </body>
+  <script>
+    setTimeout(() => {
+      document.querySelector("#target").innerHTML = `
+      <iframe
+      width="100%"
+      height="500"
+      allowfullscreen="allowfullscreen"
+      allowpaymentrequest
+      frameborder="2"
+      src="https://stefkors.github.io/dev/messy_html"
+    ></iframe>
+    `
+    }, 5000);
+  </script>
+</html>
