@@ -63,8 +63,8 @@
       document.querySelector('#interval-value').innerHTML = interval
 
       interval = setInterval(() => {
-        if (count == 10) {
-          clearInterval(interval)
+        if (count > 10) {
+          return
         }
         insertIframe()
         setTimeout(() => {
