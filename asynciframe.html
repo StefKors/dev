@@ -36,8 +36,10 @@
   </article>
 </body>
 <script>
+  var count = 0
   function loadPage() {
     function insertIframe() {
+      console.takeHeapSnapshot([`insertFrame ${count}`])
       document.querySelector("#target").innerHTML = `
       <iframe
       width="100%"
@@ -53,6 +55,8 @@
     const params = (new URL(document.location)).searchParams
     const interval = parseInt(params.get('interval'))
 
+    console.takeHeapSnapshot(["pageLoad"])
+
     if (interval) {
       selectElement.value = interval
       document.querySelector('#interval-value').innerHTML = interval
@@ -60,6 +64,8 @@
       setInterval(() => {
         insertIframe()
         setTimeout(() => {
+          console.takeHeapSnapshot([`removeFrame ${count}`])
+          count++
           document.querySelector("#target").innerHTML =
             "removing and recreating iframe"
         }, interval - 500)
