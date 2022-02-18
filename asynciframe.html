@@ -37,6 +37,7 @@
 </body>
 <script>
   var count = 0
+  var interval
   function loadPage() {
     function insertIframe() {
       console.takeHeapSnapshot([`insertFrame ${count}`])
@@ -61,7 +62,10 @@
       selectElement.value = interval
       document.querySelector('#interval-value').innerHTML = interval
 
-      setInterval(() => {
+      interval = setInterval(() => {
+        if (count == 10) {
+          clearInterval(interval)
+        }
         insertIframe()
         setTimeout(() => {
           console.takeHeapSnapshot([`removeFrame ${count}`])
