@@ -62,7 +62,7 @@
       selectElement.value = interval
       document.querySelector('#interval-value').innerHTML = interval
 
-      interval = setInterval(() => {
+      setInterval(() => {
         if (count > 10) {
           return
         }
@@ -88,19 +88,22 @@
       newLocation.search = search.toString()
     });
 
-    function scan(o) {
-      Object.keys(o).forEach(function (key) {
-        var val = o[key];
-        // Stop if object was created in another window
-        if (typeof val !== 'string' && typeof val !== 'number' && typeof val !== 'boolean' && !(val instanceof Object)) {
-          debugger;
-          console.error('created in another window', key, val);
-        }
-        // Traverse the nested object hierarchy
-      });
-    }
+    console.takeHeapSnapshot(["before"])
+document.querySelector("#target").innerHTML = null
+function scan(o) {
+  Object.keys(o).forEach(function (key) {
+    var val = o[key];
+    // Stop if object was created in another window
+    if (typeof val !== 'string' && typeof val !== 'number' && typeof val !== 'boolean' && !(val instanceof Object)) {
+      o[key] = null
+    }    // Traverse the nested object hierarchy
 
-    scan(window)
+  });
+}
+scan(window)
+console.takeHeapSnapshot(["after"])
+
+
 
   }
   document.addEventListener("load", loadPage())
