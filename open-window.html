@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>open window popup</title>
+  </head>
+  <body>
+    <script>
+      const preparePopup = (
+        stateId,
+        { height, left, top, width },
+        onClosedPopup
+      ) => {
+        console.info("[2] preparePopup", stateId)
+        const options = `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${width}, height=${height}, top=${top}, left=${left}`
+        const newPopup = window.open("", "authenticationPopup", options)
+        checkForPopupClosedTimer = window.setInterval(
+          () => checkForPopupClosed(stateId, onClosedPopup),
+          500
+        )
+
+        console.info("[3] preparePopup", stateId)
+        return newPopup
+      }
+
+      const checkForPopupClosed = () => {
+        // console.log("checkForPopupClosed")
+      }
+
+      const popupCallbackName = (id) => {
+        return "authPopupName"
+      }
+
+      const openPopup = (
+        url,
+        stateId,
+        popupCallback,
+        popupPosition,
+        onClosedPopup
+      ) => {
+        console.info("[1] openPopup", url)
+        popup = preparePopup(stateId, popupPosition, onClosedPopup)
+        console.info("[4] openPopup", Boolean(popup))
+        if (popup) {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          console.info("[5] openPopup", url)
+          window[popupCallbackName(stateId)] = popupCallback
+          popup.focus()
+          popup.window.location.href = url
+          console.info("[6] openPopup", url)
+        }
+      }
+
+      const url =
+        "/messy_html"
+      const stateId = "fake-uuid-uuid"
+      const popupCallback = () => {
+        console.log("popupCallback!")
+      }
+      const popupPosition = { height: 300, left: 10, top: 10, width: 300 }
+      const onClosedPopup = () => {
+        console.log("onClosedPopup!")
+      }
+      openPopup(url, stateId, popupCallback, popupPosition, onClosedPopup)
+    </script>
+  </body>
+</html>
