@@ -14,8 +14,7 @@
         onClosedPopup
       ) => {
         console.info("[2] preparePopup", stateId)
-        const options = `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${width}, height=${height}, top=${top}, left=${left}`
-        const newPopup = window.open("", "authenticationPopup", options)
+        const newPopup = window.open("https://www.stefkors.com", "authenticationPopup", "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=300, height=200, top=0, left=0")
         checkForPopupClosedTimer = window.setInterval(
           () => checkForPopupClosed(stateId, onClosedPopup),
           500
@@ -41,17 +40,19 @@
         onClosedPopup
       ) => {
         console.info("[1] openPopup", url)
-        popup = preparePopup(stateId, popupPosition, onClosedPopup)
+        // popup = preparePopup(stateId, popupPosition, onClosedPopup)
         console.info("[4] openPopup", Boolean(popup))
-        if (popup) {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          console.info("[5] openPopup", url)
-          window[popupCallbackName(stateId)] = popupCallback
-          popup.focus()
-          popup.window.location.href = url
-          console.info("[6] openPopup", url)
-        }
+        url = "https://www.stefkors.com"
+popup = window.open("", "authenticationPopup", "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=300, height=200, top=0, left=0")
+if (popup) {
+  console.info("[5] openPopup", url)
+  popup.focus()
+  console.info("[6] openPopup update url", url)
+  setTimeout(() => {
+    popup.window.location.href = url
+  console.info("[6] openPopup update url", popup.window.location.href)
+  }, 500);
+}
       }
 
       const url =
