@@ -21,10 +21,11 @@
       document.querySelector("#openAsWindow").addEventListener("click", () => {
         const options = 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=300, height=200, top=0, left=0'
         let popup = window.open("", "newWindowName", options)
-        console.info("1.", popup)
+        console.info("1.", popup.window.location)
         popup.focus()
-        console.info("2.", popup)
+        console.info("2.", popup.window.location)
         popup.window.location.href = "https://stefkors.github.io/dev/open-window-buttons"
+        console.info("3.", popup.window.location)
       })
     })
   </script>
