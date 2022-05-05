@@ -89,7 +89,7 @@
 
     document.querySelector("#cookie-set").addEventListener("click", (event) => {
       var words = ["Rock", "Paper", "Scissors"]
-      var date = 9999999999999999999999
+      var date =  76400 // 86400s == 24h
       var move1 = words[Math.floor(Math.random() * words.length)]
       document.cookie = `cookie-move-1=${move1}; maxAge=${date}; SameSite=None; Secure`
 
