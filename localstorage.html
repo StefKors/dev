@@ -89,14 +89,12 @@
 
     document.querySelector("#cookie-set").addEventListener("click", (event) => {
       var words = ["Rock", "Paper", "Scissors"]
-      var date = new Date()
-      var exdays = 30 // days
-      date.setTime(date.getTime() + exdays * 24 * 60 * 60 * 1000)
+      var date = 9999999999999999999999
       var move1 = words[Math.floor(Math.random() * words.length)]
-      document.cookie = `cookie-move-1=${move1}; expires=${date}; SameSite=None; Secure`
+      document.cookie = `cookie-move-1=${move1}; maxAge=${date}; SameSite=None; Secure`
 
       var move2 = words[Math.floor(Math.random() * words.length)]
-      document.cookie = `cookie-move-2=${move2}; expires=${date}; SameSite=None; Secure`
+      document.cookie = `cookie-move-2=${move2}; maxAge=${date}; SameSite=None; Secure`
       showcookie()
     })
 
