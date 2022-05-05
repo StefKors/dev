@@ -96,7 +96,7 @@
       document.cookie = `cookie-move-1=${move1}; Expires=${date.toUTCString()};`
 
       var move2 = words[Math.floor(Math.random() * words.length)]
-      document.cookie = `cookie-move-2=${move2}; Expires=${date};`
+      document.cookie = `cookie-move-2=${move2}; Expires=${date.toUTCString()};`
       showcookie()
     })
 
