@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>localstorage</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      body {
+
+      }
+    </style>
+  </head>
+  <body>
+    <p>location: https://stefkors.github.io/dev/localstorage</p>
+    <button id="localstorage-set">Set localstorage</button>
+    <p>
+      move1: <span id="move-1"></span>
+    </p>
+    <p>
+      move2: <span id="move-2"></span>
+    </p>
+  </body>
+  <script>
+    showStorage()
+
+    var words = ['Rock', 'Paper', 'Scissors'];
+
+    document.querySelector("#localstorage-set").addEventListener("click", (event) => {
+      var move1 = words[Math.floor(Math.random() * words.length)];
+      localStorage.setItem(`move-1`, move1)
+
+      var move2 = words[Math.floor(Math.random() * words.length)];
+      localStorage.setItem(`move-2`, move2)
+      showStorage()
+    })
+
+    function showStorage() {
+      document.querySelector("#move-1").textContent = localStorage.getItem('move-1');
+      document.querySelector("#move-2").textContent = localStorage.getItem('move-2');
+    }
+  </script>
+</html>
