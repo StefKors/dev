@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>localstorage</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      .type {
+        border: 1px solid;
+        border-radius: 4px;
+        padding: 5px;
+      }
+      article {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+      }
+    </style>
+  </head>
+  <body onload="load()">
+    <p>location: https://stefkors.github.io/dev/localstorage</p>
+    <article>
+      <div class="type">
+        <button id="localstorage-set">Set localstorage</button>
+        <p>move1: <span id="localstorage-move-1"></span></p>
+        <p>move2: <span id="localstorage-move-2"></span></p>
+      </div>
+
+      <div class="type">
+        <button id="sessionStorage-set">Set sessionStorage</button>
+        <p>move1: <span id="sessionStorage-move-1"></span></p>
+        <p>move2: <span id="sessionStorage-move-2"></span></p>
+      </div>
+
+      <div class="type">
+        <button id="cookie-set">Set cookie</button>
+        <p>results: <span id="cookie-result"></span></p>
+      </div>
+    </article>
+  </body>
+  <script>
+    showlocalStorage()
+
+    document
+      .querySelector("#localstorage-set")
+      .addEventListener("click", (event) => {
+        var words = ["Rock", "Paper", "Scissors"]
+        var move1 = words[Math.floor(Math.random() * words.length)]
+        localStorage.setItem(`localstorage-move-1`, move1)
+
+        var move2 = words[Math.floor(Math.random() * words.length)]
+        localStorage.setItem(`localstorage-move-2`, move2)
+        showlocalStorage()
+      })
+
+    function showlocalStorage() {
+      document.querySelector("#localstorage-move-1").textContent =
+        localStorage.getItem("localstorage-move-1")
+      document.querySelector("#localstorage-move-2").textContent =
+        localStorage.getItem("localstorage-move-2")
+    }
+  </script>
+  <script>
+    showsessionStorage()
+
+    document
+      .querySelector("#sessionStorage-set")
+      .addEventListener("click", (event) => {
+        var words = ["Rock", "Paper", "Scissors"]
+        var move1 = words[Math.floor(Math.random() * words.length)]
+        sessionStorage.setItem(`sessionStorage-move-1`, move1)
+
+        var move2 = words[Math.floor(Math.random() * words.length)]
+        sessionStorage.setItem(`sessionStorage-move-2`, move2)
+        showsessionStorage()
+      })
+
+    function showsessionStorage() {
+      document.querySelector("#sessionStorage-move-1").textContent =
+        sessionStorage.getItem("sessionStorage-move-1")
+      document.querySelector("#sessionStorage-move-2").textContent =
+        sessionStorage.getItem("sessionStorage-move-2")
+    }
+  </script>
+  <script>
+    showcookie()
+
+    document.querySelector("#cookie-set").addEventListener("click", (event) => {
+      var words = ["Rock", "Paper", "Scissors"]
+      var date = (1*24*60*60)
+      var move1 = words[Math.floor(Math.random() * words.length)]
+      document.cookie = `cookie-move-1=${move1}; max-age=${date};`
+
+      var move2 = words[Math.floor(Math.random() * words.length)]
+      document.cookie = `cookie-move-2=${move2}; max-age=${date};`
+      showcookie()
+    })
+
+    function showcookie() {
+      document.querySelector("#cookie-result").textContent = document.cookie
+    }
+
+    function load() {
+      console.log("load", navigator.cookieEnabled)
+      showcookie()
+    }
+  </script>
+</html>
