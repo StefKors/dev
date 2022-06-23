@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+    <!-- Download and initialize as soon as possible to avoid missing early events -->
+    <script src="https://unpkg.com/@newrelic/browser-agent/dist/bundled/es6/index.js"></script>
+
+</head>
+<body>
+<h1>nr</h1>
+</body>
+<script>
+  const { BrowserAgent } = NRBA;
+  const options = {
+      // See 'Configuring your application'
+  }
+  const agent = new BrowserAgent()
+  agent.start(options).then(() => {
+      console.log("Browser Agent Initialized!")
+  })
+</script>
+</html>

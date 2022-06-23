@@ -1,0 +1,10 @@
+{
+  "state": "opened",
+  "id": "gid://gitlab/MergeRequest/161763304",
+  "title": "Embed regex pattern can slow down pns BE-4516",
+  "draft": false,
+  "webUrl": "https://gitlab.com/beamgroup/beam/-/merge_requests/3066",
+  "approvedBy": {
+    "edges": []
+  }
+}
