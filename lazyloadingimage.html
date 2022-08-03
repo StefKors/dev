@@ -6,7 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>lazyloading image</title>
   </head>
+
   <body>
+    <pre>
+diff --git a/lazyloadingimage.html b/lazyloadingimage.html
+index b47f4dc..4b1a92a 100644
+--- a/lazyloadingimage.html
++++ b/lazyloadingimage.html
+@@ -18,7 +18,7 @@
+         https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY422_CR2,0,285,422_.jpg 285w,
+         https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY562_CR3,0,380,562_.jpg 380w
+       "
+-      sizes="50vw, (min-width: 480px) 34vw, (min-width: 600px) 26vw, (min-width: 1024px) 16vw, (min-width: 1280px) 16vw"
++      sizes="(max-width: 400px) 190px, (max-width: 600px) 285px, 380px"
+       width="190"
+     />
+
+    </pre>
     <h2>from imdb:</h2>
     <img
       alt="Jennifer Connelly, Tom Cruise, Jon Hamm, Jay Ellis, Miles Teller, and Monica Barbaro in Top Gun: Maverick (2022)"
@@ -19,6 +35,21 @@
         https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY562_CR3,0,380,562_.jpg 380w
       "
       sizes="50vw, (min-width: 480px) 34vw, (min-width: 600px) 26vw, (min-width: 1024px) 16vw, (min-width: 1280px) 16vw"
+      width="190"
+    />
+
+    <h2>srcset sizes patch</h2>
+    <img
+      alt="Jennifer Connelly, Tom Cruise, Jon Hamm, Jay Ellis, Miles Teller, and Monica Barbaro in Top Gun: Maverick (2022)"
+      class="ipc-image"
+      loading="eager"
+      src="https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY281_CR2,0,190,281_.jpg"
+      srcset="
+        https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY281_CR2,0,190,281_.jpg 190w,
+        https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY422_CR2,0,285,422_.jpg 285w,
+        https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY562_CR3,0,380,562_.jpg 380w
+      "
+      sizes="(max-width: 400px) 190px, (max-width: 600px) 285px, 380px"
       width="190"
     />
   </body>
