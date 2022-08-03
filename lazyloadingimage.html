@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>lazyloading image</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lazyloading image</title>
+  </head>
+  <body>
+    <h2>from imdb:</h2>
+    <img
+      alt="Jennifer Connelly, Tom Cruise, Jon Hamm, Jay Ellis, Miles Teller, and Monica Barbaro in Top Gun: Maverick (2022)"
+      class="ipc-image"
+      loading="eager"
+      src="https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY281_CR2,0,190,281_.jpg"
+      srcset="
+        https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY281_CR2,0,190,281_.jpg 190w,
+        https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY422_CR2,0,285,422_.jpg 285w,
+        https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY562_CR3,0,380,562_.jpg 380w
+      "
+      sizes="50vw, (min-width: 480px) 34vw, (min-width: 600px) 26vw, (min-width: 1024px) 16vw, (min-width: 1280px) 16vw"
+      width="190"
+    />
 
-  <h2>from imdb:</h2>
-  <img alt="Jennifer Connelly, Tom Cruise, Jon Hamm, Jay Ellis, Miles Teller, and Monica Barbaro in Top Gun: Maverick (2022)" class="ipc-image" loading="eager" src="https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY281_CR2,0,190,281_.jpg" srcset="https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY281_CR2,0,190,281_.jpg 190w, https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY422_CR2,0,285,422_.jpg 285w, https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY562_CR3,0,380,562_.jpg 380w" sizes="50vw, (min-width: 480px) 34vw, (min-width: 600px) 26vw, (min-width: 1024px) 16vw, (min-width: 1280px) 16vw" width="190">
-
-  <h2>sizes fix, correct amount + px last</h2>
-  <img alt="Chris Evans and Ryan Gosling in The Gray Man (2022)" class="ipc-image" src="https://m.media-amazon.com/images/M/MV5BOWY4MmFiY2QtMzE1YS00NTg1LWIwOTQtYTI4ZGUzNWIxNTVmXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_QL75_UX190_CR0,0,190,281_.jpg" srcset="https://m.media-amazon.com/images/M/MV5BOWY4MmFiY2QtMzE1YS00NTg1LWIwOTQtYTI4ZGUzNWIxNTVmXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_QL75_UX190_CR0,0,190,281_.jpg 480w, https://m.media-amazon.com/images/M/MV5BOWY4MmFiY2QtMzE1YS00NTg1LWIwOTQtYTI4ZGUzNWIxNTVmXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_QL75_UX285_CR0,0,285,422_.jpg 800w" sizes="(max-width: 600px) 480px, 800px" width="190">
-</body>
+    <h2>sizes fix, correct amount + px last</h2>
+    <img
+      alt="Chris Evans and Ryan Gosling in The Gray Man (2022)"
+      class="ipc-image"
+      loading="eager"
+      src="https://m.media-amazon.com/images/M/MV5BOWY4MmFiY2QtMzE1YS00NTg1LWIwOTQtYTI4ZGUzNWIxNTVmXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_QL75_UX190_CR0,0,190,281_.jpg"
+      srcset="
+      https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY281_CR2,0,190,281_.jpg 190w,
+      https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY422_CR2,0,285,422_.jpg 285w,
+      https://m.media-amazon.com/images/M/MV5BOWQwOTA1ZDQtNzk3Yi00ZmVmLWFiZGYtNjdjNThiYjJhNzRjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_QL75_UY562_CR3,0,380,562_.jpg 380w
+      "
+      sizes="(max-width: 400px) 190px, (max-width: 600px) 285px, 380px"
+      width="190"
+    />
+  </body>
 </html>
 
 <!-- <img src="cursor.png" alt="" srcset="cursor.png 480w, cursor.png 800w" sizes="(max-width: 600px) 480px, 800px" width="190" /> -->
