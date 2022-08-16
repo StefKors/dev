@@ -16,12 +16,8 @@
 
       history.pushState({}, "", "index.html");
 
-      for (let i = 0; i < totalCount; i++) {
+      for (let i = 0; i < totalCount/3; i++) {
         // ...
-        
-        if (i % 1_000_000) {
-          document.write(`counted to ${i}`)
-        }
         true
       }
       
