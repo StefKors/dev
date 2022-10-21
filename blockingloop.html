@@ -2,25 +2,19 @@
   <head>
     <script>
       document.write("starting... ")
-      // const totalCount = 10_000_000_000 
       const totalCount = 10_000_000
 
       for (let i = 0; i < totalCount; i++) {
         // ...
-        
-        if (i % 1_000_000) {
-          document.write(`counted to ${i}`)
-        }
         true
       }
 
       history.pushState({}, "", "index.html");
 
-      for (let i = 0; i < totalCount/3; i++) {
+      for (let i = 0; i < totalCount; i++) {
         // ...
         true
       }
-      
 
       document.write("done!")
     </script>
